@@ -44,7 +44,7 @@ class GitHubPlugin extends FlowPlugin {
     def triggerGitHubEndPoint(String requestBody, String endPoint) {
         def data  = requestBody;
         def post = new URL(endPoint).openConnection() as HttpURLConnection;
-        def credentials = "jayakumarkrish97@gmail.com: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"
+        def credentials = "jayakumarkrish97@gmail.com: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"
         def encodedCredentials = Base64.getEncoder().encodeToString(credentials.getBytes())
         post.setRequestMethod("POST");
         post.setDoOutput(true);
