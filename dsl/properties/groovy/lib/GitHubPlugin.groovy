@@ -21,8 +21,10 @@ class GitHubPlugin extends FlowPlugin {
      * Add your code into this method and it will be called when step runs* Parameter: config* Parameter: username
      */
     def sampleRESTProcedure(StepParameters p, StepResult sr) {
-        def reqBody = '{"head":"jayakumar","base":"main","title":"sample pull"}';
-        def endPoint = "https://api.github.com/repos/jaikrishOrg/HeareSightRepo/pulls";
+        def pullReqBody = '{"head":"jayakumar","base":"main","title":"sample pull"}'
+        def pullEndPoint = "https://api.github.com/repos/jaikrishOrg/HeareSightRepo/pulls"
+        def releaseReqBody = '{"tag_name":"v1.0.0","name": "Release3","prerelease": true}'
+        def releaseEndPoint = "https://api.github.com/repos/jaikrishOrg/HeareSightRepo/releases"
         SampleRESTProcedureParameters sp = SampleRESTProcedureParameters.initParameters(p)
         GitHubPluginRESTClient rest = genGitHubPluginRESTClient()
         Map restParams = [:]
@@ -33,7 +35,8 @@ class GitHubPlugin extends FlowPlugin {
         log.info "Got response from server: $response"
         //TODO step result output parameters
         sr.apply()
-        triggerGitHubEndPoint(reqBody, endPoint);
+        triggerGitHubEndPoint(pullReqBody, pullEndPoint)
+        triggerGitHubEndPoint(releaseReqBody, releaseEndPoint)
     }
 
     def triggerGitHubEndPoint(String requestBody, String endPoint) {

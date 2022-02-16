@@ -3,7 +3,7 @@ pluginInfo:
   # Feel free to change it
   # Call pdk showdoc pluginspec to see the list of available fields and their description
   pluginName: 'GitHubPlugin'
-  version: '1.0.0'
+  version: '1.0.1'
   description: 'Build a Plugin for GIthub using the Cloudbees CD PDK'
   author: 'jayakumar'
   supportUrl: 'default'
