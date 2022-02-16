@@ -3,7 +3,7 @@ pluginInfo:
   # Feel free to change it
   # Call pdk showdoc pluginspec to see the list of available fields and their description
   pluginName: 'GitHubPlugin'
-  version: '1.0.1'
+  version: '1.0.2'
   description: 'Build a Plugin for GIthub using the Cloudbees CD PDK'
   author: 'jayakumar'
   supportUrl: 'default'
@@ -12,7 +12,7 @@ pluginInfo:
 
 # REST-backed plugin configuration
 configuration:
-  checkConnection: true
+  checkConnection: false
   restConfigInfo:
     endpointLabel: 'My REST Endpoint'
     checkConnectionUri: '/user'

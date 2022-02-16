@@ -37,7 +37,9 @@ class GitHubPlugin extends FlowPlugin {
         log.info "Got response from server: $response"
         //TODO step result output parameters
         sr.apply()
+        //To create pull request
         triggerGitHubEndPoint(pullReqBody, pullEndPoint)
+        //To create release
         triggerGitHubEndPoint(releaseReqBody, releaseEndPoint)
     }
 
