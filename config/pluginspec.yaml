@@ -1,0 +1,48 @@
+pluginInfo:
+  # This is default sample specification
+  # Feel free to change it
+  # Call pdk showdoc pluginspec to see the list of available fields and their description
+  pluginName: 'GitHubPlugin'
+  version: '1.0.0'
+  description: 'Build a Plugin for GIthub using the Cloudbees CD PDK'
+  author: 'jayakumar'
+  supportUrl: 'default'
+  category: 'default'
+  shell: 'ec-groovy'
+
+# REST-backed plugin configuration
+configuration:
+  checkConnection: true
+  restConfigInfo:
+    endpointLabel: 'My REST Endpoint'
+    checkConnectionUri: '/user'
+    headers:
+      Accept: 'application/json'
+    authSchemes:
+      basic:
+        userNameLabel: 'Username'
+        passwordLabel: 'Password'
+        description: 'Username and password to connect to ...'
+  hasProxySupport: true
+  hasDebugLevel: true
+
+procedures:
+-
+  name: 'Sample REST Procedure'
+  description: 'This procedure demonstrates a simple REST call'
+  hasConfig: true
+  shell: 'ec-groovy'
+  parameters:
+  -
+    name: username
+    documentation: Sample parameter
+    required: true
+    type: entry
+    label: Username
+    restParamInfo:
+      in: path
+  # Connects REST endpoint to the plugin procedure
+  restProcedureInfo:
+    url: '/user'
+    methodName: 'getUser'
+    httpMethod: 'GET'
