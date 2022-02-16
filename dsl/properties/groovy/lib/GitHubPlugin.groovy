@@ -21,8 +21,10 @@ class GitHubPlugin extends FlowPlugin {
      * Add your code into this method and it will be called when step runs* Parameter: config* Parameter: username
      */
     def sampleRESTProcedure(StepParameters p, StepResult sr) {
+        //End point and request body for creating pull request
         def pullReqBody = '{"head":"jayakumar","base":"main","title":"sample pull"}'
         def pullEndPoint = "https://api.github.com/repos/jaikrishOrg/HeareSightRepo/pulls"
+        //End point and request body for creating release
         def releaseReqBody = '{"tag_name":"v1.0.0","name": "Release3","prerelease": true}'
         def releaseEndPoint = "https://api.github.com/repos/jaikrishOrg/HeareSightRepo/releases"
         SampleRESTProcedureParameters sp = SampleRESTProcedureParameters.initParameters(p)
